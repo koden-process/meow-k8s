@@ -4,6 +4,7 @@ app:
   port: 3000
   url: meow.koden.bzh
   db: mongodb://koden-mongodb-meow:27017/meow
+  namespace: koden
 
 mongodb:
   name: koden-mongodb-meow

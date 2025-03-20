@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: meow-app
+  namespace: {{ .Values.app.namespace }}
 spec:
   replicas: {{ .Values.app.replicas }}
   selector:
