@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: meow-app
+  name: {{ .Values.app.name }}
   namespace: {{ .Values.app.namespace }}
 spec:
   replicas: {{ .Values.app.replicas }}
   selector:
     matchLabels:
-      app: meow-app
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: meow-app
+        app: {{ .Values.app.name }}
     spec:
       containers:
-        - name: meow-app
+        - name: {{ .Values.app.name }}
           image: {{ .Values.app.image }}
           ports:
             - containerPort: 80
