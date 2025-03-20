@@ -24,4 +24,4 @@ spec:
       volumes:
         - name: mongodb-storage
           persistentVolumeClaim:
-            claimName: mongodb-pvc
+            claimName: {{ .Values.mongodb.name }}-pvc
