@@ -32,4 +32,3 @@ spec:
               value: "info"
             - name: NODE_ENV
               value: "production"
-          restartPolicy: Always
