@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meow-app
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: meow-app
+  template:
+    metadata:
+      labels:
+        app: meow-app
+    spec:
+      containers:
+        - name: meow-app
+          image: {{ .Values.app.image }}
+          ports:
+            - containerPort: 80
+          env:
+            - name: MONGODB_URI
+              value: {{ .Values.app.db }}
+            - name: SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: session-secret
+                  key: secret
+            - name: PORT
+              value: "9000"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: NODE_ENV
+              value: "production"
+          restartPolicy: Always

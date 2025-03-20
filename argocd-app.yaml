@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: meow
+  namespace: argocd
+spec:
+  project: koden
+  source:
+    repoURL: "https://github.com/koden-process/meow-k8s.git"
+    targetRevision: main
+    path: charts
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: koden
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
