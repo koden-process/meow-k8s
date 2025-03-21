@@ -1,5 +1,5 @@
 apiVersion: v2
 name: meow-chart
-description: Chart Helm pour déployer Meow et MongoDB
+description: Chart Helm pour déployer Meow
 version: 1.0.0
 appVersion: "1.0"
