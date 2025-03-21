@@ -24,7 +24,7 @@ spec:
             - name: SESSION_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: session-secret
+                  name: {{ .Values.app.name }}-session-secret
                   key: secret
             - name: PORT
               value: "9000"

@@ -11,6 +11,7 @@ mongodb:
   name: koden-mongodb-meow
   image: mongo:6
   port: 27017
+  username: koden
   persistence:
     enabled: true
     size: 1Gi

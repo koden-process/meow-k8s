@@ -16,6 +16,17 @@ spec:
       containers:
         - name: mongodb
           image: {{ .Values.mongodb.image }}
+          env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.mongodb.name }}-secret
+                key: mongo-root-username
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.mongodb.name }}-secret
+                key: mongo-root-password
           ports:
             - containerPort: {{ .Values.mongodb.port }}
           volumeMounts:
