@@ -4,5 +4,4 @@ app:
   replicas: 1
   port: 3000
   url: meow.koden.bzh
-  db: mongodb://koden-mongodb-meow-service.koden.svc.cluster.local:27017/meow
   namespace: koden
